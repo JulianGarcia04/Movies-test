@@ -1,3 +1,46 @@
-<section class="flex justify-around items-center w-full">
-  <app-movie-card *ngFor="let movie of movies" [movie]="movie" />
+<section
+  class="flex flex-col items-center"
+>
+  <div
+    class="flex justify-end py-8 w-4/5"
+  >
+    <label
+      class="flex items-center"
+      for="order_select"
+    >
+      <span
+        class="material-symbols-outlined mr-1"
+      >
+        swap_vert
+      </span>
+      <select
+        class="border-b-2 border-b-secondary bg-transparent"
+        (ngModel)="moviesOrder()"
+        (change)="
+          onSelectOrderProperty(
+            $any($event.target).value
+          )
+        "
+        id="order_select"
+      >
+        <option
+          value="title"
+          selected
+        >
+          By title
+        </option>
+        <option value="releasedDate">
+          By release date
+        </option>
+      </select>
+    </label>
+  </div>
+  <div
+    class="flex justify-between items-center w-4/5"
+  >
+    <app-movie-card
+      *ngFor="let movie of sortedMovies"
+      [movie]="movie"
+    />
+  </div>
 </section>

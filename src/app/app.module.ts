@@ -7,8 +7,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
-  imports: [BrowserModule, AppRoutingModule, HomeComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HomeComponent,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,3 +1,53 @@
-<article>
-  <img [src]="movie.image" alt="" [width]="170" [height]="270" />
+<article class="relative">
+  <img
+    [ngSrc]="movie.image"
+    [alt]="movie.title"
+    [width]="170"
+    [height]="270"
+  />
+  <div
+    class="absolute top-0 flex flex-col justify-end items-end w-full h-full group/backdrop hover:bg-[#00000080] bg-gradient-to-b from-transparent from-70% to-[#00000080] to-95%"
+  >
+    <div
+      class="hidden group-hover/backdrop:flex h-full w-full flex-col items-center justify-center"
+    >
+      <h4 class="mb-9 text-center">
+        {{ movie.title }}
+      </h4>
+      <span
+        *ngIf="!isWatchLaterList"
+        class="material-symbols-outlined text-secondary text-3xl cursor-pointer"
+        aria-hidden="true"
+        (click)="addToWatchLaterList()"
+        (keyup)="addToWatchLaterList()"
+      >
+        format_list_bulleted_add
+      </span>
+      <span
+        *ngIf="isWatchLaterList"
+        class="material-symbols-outlined text-content2 text-3xl cursor-pointer"
+        aria-hidden="true"
+        (click)="
+          removeFromWatchLaterList()
+        "
+        (keyup)="
+          removeFromWatchLaterList()
+        "
+      >
+        playlist_add_check
+      </span>
+    </div>
+    <span
+      *ngIf="!isWatchLaterList"
+      class="group-hover/backdrop:hidden material-symbols-outlined text-secondary cursor-pointer mr-2 mb-2"
+    >
+      format_list_bulleted_add
+    </span>
+    <span
+      *ngIf="isWatchLaterList"
+      class="group-hover/backdrop:hidden material-symbols-outlined text-content2 cursor-pointer mr-2 mb-2"
+    >
+      playlist_add_check
+    </span>
+  </div>
 </article>

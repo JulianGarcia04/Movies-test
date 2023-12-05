@@ -7,9 +7,14 @@ export const MovieSchema = z.object({
   rating: z.number(),
   duration: z.string(),
   genre: z.string().array(),
-  releasedDate: z.preprocess((val) => new Date(val as string), z.date()),
+  releasedDate: z.preprocess(
+    (val) => new Date(val as string),
+    z.date(),
+  ),
   trailerLink: z.string().url(),
   image: z.string(),
 });
 
-export type Movie = z.infer<typeof MovieSchema>;
+export type Movie = z.infer<
+  typeof MovieSchema
+>;
