@@ -1,0 +1,27 @@
+<button
+  *ngIf="!isWatchLaterList"
+  type="button"
+  class="text-secondary bg-terciary hover:bg-[#8c8da4] font-medium text-sm px-5 py-2.5 text-center inline-flex items-center me-2"
+  (click)="onClickAdd()"
+>
+  <span
+    class="material-symbols-outlined"
+  >
+    format_list_bulleted_add
+  </span>
+  Watch late
+</button>
+
+<button
+  *ngIf="isWatchLaterList"
+  type="button"
+  class="text-secondary bg-content2 hover:bg-[#ce50f8] font-medium text-sm px-5 py-2.5 text-center inline-flex items-center me-2"
+  (click)="onClickRemove()"
+>
+  <span
+    class="material-symbols-outlined"
+  >
+    playlist_add_check
+  </span>
+  Remove from the list
+</button>

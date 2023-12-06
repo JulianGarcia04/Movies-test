@@ -11,9 +11,12 @@
     <div
       class="hidden group-hover/backdrop:flex h-full w-full flex-col items-center justify-center"
     >
-      <h4 class="mb-9 text-center">
+      <a
+        [routerLink]="detailsUrl"
+        class="mb-9 text-center cursor-pointer"
+      >
         {{ movie.title }}
-      </h4>
+      </a>
       <span
         *ngIf="!isWatchLaterList"
         class="material-symbols-outlined text-secondary text-3xl cursor-pointer"

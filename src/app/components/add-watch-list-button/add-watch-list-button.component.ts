@@ -1,30 +1,19 @@
 import {
-  CommonModule,
-  NgOptimizedImage,
-} from '@angular/common';
-import {
   Component,
   Input,
 } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { Movie } from 'src/app/models/movie';
+import { CommonModule } from '@angular/common';
 import { WatchLaterListService } from 'src/app/services/watch-later-list/watch-later-list.service';
+import { Movie } from 'src/app/models/movie';
 
 @Component({
-  selector: 'app-movie-card',
-  templateUrl:
-    './movie-card.component.html',
-  styleUrls: [
-    './movie-card.component.css',
-  ],
-  imports: [
-    NgOptimizedImage,
-    CommonModule,
-    RouterModule,
-  ],
+  selector: 'app-add-watch-list-button',
   standalone: true,
+  imports: [CommonModule],
+  templateUrl:
+    './add-watch-list-button.component.html',
 })
-export class MovieCardComponent {
+export class AddWatchListButtonComponent {
   @Input() movie!: Movie;
 
   constructor(
@@ -39,16 +28,12 @@ export class MovieCardComponent {
     );
   }
 
-  get detailsUrl() {
-    return `/movie/${this.movie.id}`;
-  }
-
-  addToWatchLaterList() {
+  onClickAdd() {
     this.watchList.add(this.movie);
     alert('add correctly');
   }
 
-  removeFromWatchLaterList() {
+  onClickRemove() {
     try {
       this.watchList.remove(
         this.movie.id,

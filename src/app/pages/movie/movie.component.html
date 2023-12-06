@@ -1,0 +1,42 @@
+<section
+  class="flex justify-center items-center w-full h-full pt-[100px]"
+>
+  <div
+    class="flex items-start h-[70%] w-4/5"
+  >
+    <div class="w-2/6 h-full">
+      <img
+        [ngSrc]="currMovie.image"
+        [alt]="currMovie.title"
+        class="static"
+        fill
+      />
+    </div>
+    <div
+      class="w-1/2 ml-8 text-secondary"
+    >
+      <h1 class="text-2xl mb-3">
+        {{ currMovie.title }}
+      </h1>
+      <h4 class="text-xl mb-3">
+        {{ currMovie.description }}
+      </h4>
+      <h4 class="text-md mb-3">
+        Duration:
+        {{ currMovie.duration }}
+      </h4>
+      <h4 class="text-md mb-3">
+        Released date:
+        {{
+          currMovie.releasedDate.toDateString()
+        }}
+      </h4>
+      <div class="flex">
+        <app-add-watch-list-button
+          [movie]="currMovie"
+        />
+        <app-see-trailer-video-button />
+      </div>
+    </div>
+  </div>
+</section>

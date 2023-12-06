@@ -1,18 +1,7 @@
-import {
-  Component,
-  OnInit,
-  inject,
-  signal,
-} from '@angular/core';
+import { Component } from '@angular/core';
 import { MoviesSectionComponent } from 'src/app/components/movies-section/movies-section.component';
-import {
-  HttpClient,
-  HttpClientModule,
-} from '@angular/common/http';
-import {
-  Movie,
-  MovieSchema,
-} from 'src/app/models/movie';
+import { HttpClientModule } from '@angular/common/http';
+import { MoviesService } from 'src/app/services/movies/movies.service';
 
 @Component({
   selector: 'app-home',
@@ -24,30 +13,12 @@ import {
   ],
   standalone: true,
 })
-export class HomeComponent
-  implements OnInit
-{
-  http = inject(HttpClient);
+export class HomeComponent {
+  constructor(
+    private moviesService: MoviesService,
+  ) {}
 
-  movies = signal<Movie[]>([]);
-
-  ngOnInit() {
-    this.http
-      .get<Movie[]>('/assets/data.json')
-      .subscribe((data) => {
-        const m = data
-          .filter((obj) => {
-            return MovieSchema.safeParse(
-              obj,
-            ).success;
-          })
-          .map((obj) => {
-            return MovieSchema.parse(
-              obj,
-            );
-          });
-
-        this.movies.set(m);
-      });
+  get movies() {
+    return this.moviesService.movies;
   }
 }
