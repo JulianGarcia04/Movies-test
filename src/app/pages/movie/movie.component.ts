@@ -11,6 +11,7 @@ import { Movie } from 'src/app/models/movie';
 import { Router } from '@angular/router';
 import { AddWatchListButtonComponent } from 'src/app/components/add-watch-list-button/add-watch-list-button.component';
 import { SeeTrailerVideoButtonComponent } from 'src/app/components/see-trailer-video-button/see-trailer-video-button.component';
+import { RatingComponent } from 'src/app/components/rating/rating.component';
 
 @Component({
   selector: 'app-movie',
@@ -20,9 +21,9 @@ import { SeeTrailerVideoButtonComponent } from 'src/app/components/see-trailer-v
     NgOptimizedImage,
     AddWatchListButtonComponent,
     SeeTrailerVideoButtonComponent,
+    RatingComponent,
   ],
   templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.css'],
 })
 export class MovieComponent {
   @Input() id!: string;
@@ -31,6 +32,10 @@ export class MovieComponent {
     return this.moviesService.getById(
       this.id,
     ) as Movie;
+  }
+
+  get styles() {
+    return `view-transition-name: movie-${this.currMovie.id};`;
   }
 
   constructor(

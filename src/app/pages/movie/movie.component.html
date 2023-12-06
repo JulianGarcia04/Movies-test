@@ -4,13 +4,23 @@
   <div
     class="flex items-start h-[70%] w-4/5"
   >
-    <div class="w-2/6 h-full">
+    <div
+      class="column items-center w-2/6 h-full"
+    >
       <img
         [ngSrc]="currMovie.image"
         [alt]="currMovie.title"
-        class="static"
+        class="static h-5/6"
+        [style]="styles"
         fill
       />
+      <div
+        class="flex flex-col items-center"
+      >
+        <app-rating
+          [rating]="currMovie.rating"
+        />
+      </div>
     </div>
     <div
       class="w-1/2 ml-8 text-secondary"
@@ -35,7 +45,11 @@
         <app-add-watch-list-button
           [movie]="currMovie"
         />
-        <app-see-trailer-video-button />
+        <app-see-trailer-video-button
+          [youtubeUrl]="
+            currMovie.trailerLink
+          "
+        />
       </div>
     </div>
   </div>
