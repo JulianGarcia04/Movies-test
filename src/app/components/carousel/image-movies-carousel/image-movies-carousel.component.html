@@ -1,0 +1,14 @@
+<img
+  [ngSrc]="src"
+  [alt]="alt"
+  [width]="width()"
+  [height]="height()"
+  [ngStyle]="{
+    transform: transformStyle
+  }"
+  (mousemove)="
+    onMouseMoveInImage($event)
+  "
+  (mouseout)="onMouseOutFromTheImage()"
+  (blur)="onMouseOutFromTheImage()"
+/>

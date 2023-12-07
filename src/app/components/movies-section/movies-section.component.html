@@ -1,5 +1,5 @@
 <section
-  class="flex flex-col items-center"
+  class="flex flex-col items-center py-5"
 >
   <div
     class="flex justify-end py-8 w-11/12 md:w-4/5"
@@ -36,7 +36,8 @@
     </label>
   </div>
   <div
-    class="flex justify-between items-center gap-y-3 flex-wrap w-11/12 md:w-4/5"
+    id="movies"
+    class="flex justify-center md:justify-between items-center gap-3 flex-wrap w-11/12 md:w-4/5"
   >
     <app-movie-card
       *ngFor="let movie of sortedMovies"

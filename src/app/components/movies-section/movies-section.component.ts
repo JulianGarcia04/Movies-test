@@ -11,9 +11,6 @@ import { CommonModule } from '@angular/common';
   selector: 'app-movies-section',
   templateUrl:
     './movies-section.component.html',
-  styleUrls: [
-    './movies-section.component.css',
-  ],
   imports: [
     MovieCardComponent,
     CommonModule,

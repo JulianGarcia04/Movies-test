@@ -1,0 +1,43 @@
+<div
+  id="default-carousel"
+  class="relative w-full hidden md:block"
+  data-carousel="slide"
+>
+  <!-- Carousel wrapper -->
+  <div
+    class="relative h-56 overflow-hidden rounded-lg md:h-96"
+  >
+    <!-- Item 1 -->
+    <div
+      id="item-carousel"
+      class="duration-700 ease-in-out h-full w-full relative"
+    >
+      <div
+        class="w-full h-full bg-image-container absolute"
+        [style]="backgroundImage"
+      ></div>
+      <div
+        class="absolute top-[12%] left-1/4 flex w-full"
+      >
+        <app-image-movies-carousel
+          [src]="currMovie.image"
+          [alt]="currMovie.title"
+          class="mr-5 w-52"
+        />
+        <div class="w-1/2">
+          <h3
+            class="text-2xl text-secondary"
+          >
+            {{ currMovie.title }}
+          </h3>
+          <p class="text-lg w-2/3 my-3">
+            {{ currMovie.description }}
+          </p>
+          <app-add-watch-list-button
+            [movie]="currMovie"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
