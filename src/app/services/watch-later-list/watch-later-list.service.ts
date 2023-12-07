@@ -32,9 +32,13 @@ export class WatchLaterListService {
       this._key,
     );
 
+    if (!data) {
+      return;
+    }
+
     const isMoviesList =
       MovieSchema.array().safeParse(
-        JSON.parse(data ?? ''),
+        JSON.parse(data),
       );
 
     const moviesProxy =

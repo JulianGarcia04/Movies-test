@@ -19,21 +19,26 @@ export class MoviesService {
   constructor() {
     this.http
       .get<Movie[]>('/assets/data.json')
-      .subscribe((data) => {
-        const m = data
-          .filter((obj) => {
-            return MovieSchema.safeParse(
-              obj,
-            ).success;
-          })
-          .map((obj) => {
-            return MovieSchema.parse(
-              obj,
-            );
-          });
+      .subscribe(
+        (data) => {
+          const m = data
+            .filter((obj) => {
+              return MovieSchema.safeParse(
+                obj,
+              ).success;
+            })
+            .map((obj) => {
+              return MovieSchema.parse(
+                obj,
+              );
+            });
 
-        this._movies = m;
-      });
+          this._movies = m;
+        },
+        (err) => {
+          console.error(err);
+        },
+      );
   }
 
   get movies() {
