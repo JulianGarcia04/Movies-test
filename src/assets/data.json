@@ -8,7 +8,7 @@
     "genre": ["Action", "Sci-Fi"],
     "releasedDate": "3 September 2020",
     "trailerLink": "https://www.youtube.com/watch?v=LdOM0x0XDMo",
-    "image": "/assets/Tenet.png"
+    "image": "/assets/Tenet.webp"
   },
   {
     "id": "cd932ce1-725d-4fb6-a586-03b057d7d67d",
@@ -23,7 +23,7 @@
     ],
     "releasedDate": "14 December 2018",
     "trailerLink": "https://www.youtube.com/watch?v=tg52up16eq0",
-    "image": "/assets/Spider Man.png"
+    "image": "/assets/Spider-Man.webp"
   },
   {
     "id": "ce47c6b7-dc7c-470f-b0d1-886dce85f45f",
@@ -38,7 +38,7 @@
     ],
     "releasedDate": "27 November 2019",
     "trailerLink": "https://www.youtube.com/watch?v=qGqiHJTsRkQ",
-    "image": "/assets/Knives Out.png"
+    "image": "/assets/Knives-Out.webp"
   },
   {
     "id": "a4b6047d-6e57-43e8-8465-f1b8cf48b497",
@@ -53,7 +53,7 @@
     ],
     "releasedDate": "1 August 2014",
     "trailerLink": "https://www.youtube.com/watch?v=d96cjJhvlMA",
-    "image": "/assets/Guardians of The Galaxy.png"
+    "image": "/assets/Guardians-of-The-Galaxy.webp"
   },
   {
     "id": "42f3d504-2b19-4b67-89e3-aa1396a67edf",
@@ -68,6 +68,6 @@
     ],
     "releasedDate": "1 May 2015",
     "trailerLink": "https://www.youtube.com/watch?v=tmeOjFno6Do",
-    "image": "/assets/Avengers.png"
+    "image": "/assets/Avengers.webp"
   }
 ]
