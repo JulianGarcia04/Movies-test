@@ -1,6 +1,7 @@
 import {
   Component,
   Input,
+  OnInit,
 } from '@angular/core';
 import {
   CommonModule,
@@ -25,7 +26,9 @@ import { RatingComponent } from 'src/app/components/rating/rating.component';
   ],
   templateUrl: './movie.component.html',
 })
-export class MovieComponent {
+export class MovieComponent
+  implements OnInit
+{
   @Input() id!: string;
 
   get currMovie() {
@@ -42,4 +45,12 @@ export class MovieComponent {
     private moviesService: MoviesService,
     private router: Router,
   ) {}
+
+  ngOnInit(): void {
+    if (this.currMovie) {
+      return;
+    }
+
+    this.router.navigate(['**']);
+  }
 }
