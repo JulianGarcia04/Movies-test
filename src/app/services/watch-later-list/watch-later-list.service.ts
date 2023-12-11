@@ -14,6 +14,15 @@ export class WatchLaterListService {
 
   constructor() {
     this.update();
+    window.addEventListener(
+      'storage',
+      (evt) => {
+        if (evt.key === this._key) {
+          const data = evt.newValue;
+          this.update(data);
+        }
+      },
+    );
   }
 
   get movies() {
@@ -27,33 +36,31 @@ export class WatchLaterListService {
     );
   }
 
-  private update() {
-    window.addEventListener(
-      'storage',
-      (evt) => {
-        if (evt.key === this._key) {
-          const data = evt.newValue;
-          if (!data) {
-            return;
-          }
+  private update(
+    data:
+      | string
+      | null = localStorage.getItem(
+      this._key,
+    ),
+  ) {
+    if (!data) {
+      return;
+    }
 
-          const isMoviesList =
-            MovieSchema.array().safeParse(
-              JSON.parse(data),
-            );
+    const isMoviesList =
+      MovieSchema.array().safeParse(
+        JSON.parse(data),
+      );
 
-          const moviesProxy =
-            isMoviesList.success
-              ? isMoviesList.data
-              : [];
+    const moviesProxy =
+      isMoviesList.success
+        ? isMoviesList.data
+        : [];
 
-          this._movies = [
-            ...this._movies,
-            ...moviesProxy,
-          ];
-        }
-      },
-    );
+    this._movies = [
+      ...this._movies,
+      ...moviesProxy,
+    ];
   }
 
   add(movie: Movie) {

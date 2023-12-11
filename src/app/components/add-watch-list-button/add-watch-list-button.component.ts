@@ -28,12 +28,15 @@ export class AddWatchListButtonComponent {
     );
   }
 
-  onClickAdd() {
+  onClickAdd(evt: MouseEvent) {
+    evt.stopPropagation();
+
     this.watchList.add(this.movie);
     alert('add correctly');
   }
 
-  onClickRemove() {
+  onClickRemove(evt: MouseEvent) {
+    evt.stopPropagation();
     try {
       this.watchList.remove(
         this.movie.id,

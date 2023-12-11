@@ -2,7 +2,7 @@
   *ngIf="!isWatchLaterList"
   type="button"
   class="text-secondary bg-terciary hover:bg-[#8c8da4] font-medium text-sm px-5 py-2.5 text-center inline-flex items-center me-2"
-  (click)="onClickAdd()"
+  (click)="onClickAdd($event)"
 >
   <span
     class="material-symbols-outlined"
@@ -16,7 +16,7 @@
   *ngIf="isWatchLaterList"
   type="button"
   class="text-secondary bg-content2 hover:bg-[#ce50f8] font-medium text-sm px-5 py-2.5 text-center inline-flex items-center me-2"
-  (click)="onClickRemove()"
+  (click)="onClickRemove($event)"
 >
   <span
     class="material-symbols-outlined"

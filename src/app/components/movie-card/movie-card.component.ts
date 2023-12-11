@@ -92,12 +92,16 @@ export class MovieCardComponent {
     return `movie/${this.movie.id}`;
   }
 
-  addToWatchLaterList() {
+  addToWatchLaterList(evt: MouseEvent) {
+    evt.stopPropagation();
     this.watchList.add(this.movie);
     alert('add correctly');
   }
 
-  removeFromWatchLaterList() {
+  removeFromWatchLaterList(
+    evt: MouseEvent,
+  ) {
+    evt.stopPropagation();
     try {
       this.watchList.remove(
         this.movie.id,

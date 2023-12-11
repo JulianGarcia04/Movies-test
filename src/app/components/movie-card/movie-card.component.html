@@ -24,8 +24,9 @@
         *ngIf="!isWatchLaterList"
         class="material-symbols-outlined text-secondary text-3xl cursor-pointer"
         aria-hidden="true"
-        (click)="addToWatchLaterList()"
-        (keyup)="addToWatchLaterList()"
+        (click)="
+          addToWatchLaterList($event)
+        "
       >
         format_list_bulleted_add
       </span>
@@ -34,10 +35,9 @@
         class="material-symbols-outlined text-content2 text-3xl cursor-pointer"
         aria-hidden="true"
         (click)="
-          removeFromWatchLaterList()
-        "
-        (keyup)="
-          removeFromWatchLaterList()
+          removeFromWatchLaterList(
+            $event
+          )
         "
       >
         playlist_add_check
