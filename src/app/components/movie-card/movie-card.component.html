@@ -10,11 +10,13 @@
     class="absolute top-0 flex flex-col justify-end items-end w-full h-full group/backdrop hover:bg-[#00000080] bg-gradient-to-b from-transparent from-70% to-[#00000080] to-95%"
   >
     <div
-      class="hidden group-hover/backdrop:flex h-full w-full flex-col items-center justify-center"
+      class="hidden group-hover/backdrop:flex h-full w-full flex-col items-center justify-center cursor-pointer"
+      (click)="navigate()"
+      aria-hidden="true"
     >
       <button
         (click)="navigate()"
-        class="mb-9 text-center cursor-pointer bg-transparent"
+        class="mb-9 text-center cursor-pointer bg-transparent hover:underline"
       >
         {{ movie.title }}
       </button>

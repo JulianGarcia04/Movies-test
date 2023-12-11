@@ -10,7 +10,9 @@
     <!-- Item 1 -->
     <div
       id="item-carousel"
-      class="duration-700 ease-in-out h-full w-full relative"
+      class="duration-700 ease-in-out h-full w-full relative cursor-pointer"
+      (click)="navigate()"
+      aria-hidden="true"
     >
       <div
         class="w-full h-full bg-image-container absolute"

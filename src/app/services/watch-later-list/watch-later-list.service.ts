@@ -28,28 +28,32 @@ export class WatchLaterListService {
   }
 
   private update() {
-    const data = localStorage.getItem(
-      this._key,
+    window.addEventListener(
+      'storage',
+      (evt) => {
+        if (evt.key === this._key) {
+          const data = evt.newValue;
+          if (!data) {
+            return;
+          }
+
+          const isMoviesList =
+            MovieSchema.array().safeParse(
+              JSON.parse(data),
+            );
+
+          const moviesProxy =
+            isMoviesList.success
+              ? isMoviesList.data
+              : [];
+
+          this._movies = [
+            ...this._movies,
+            ...moviesProxy,
+          ];
+        }
+      },
     );
-
-    if (!data) {
-      return;
-    }
-
-    const isMoviesList =
-      MovieSchema.array().safeParse(
-        JSON.parse(data),
-      );
-
-    const moviesProxy =
-      isMoviesList.success
-        ? isMoviesList.data
-        : [];
-
-    this._movies = [
-      ...this._movies,
-      ...moviesProxy,
-    ];
   }
 
   add(movie: Movie) {
@@ -68,9 +72,6 @@ export class WatchLaterListService {
     }
 
     this._movies.splice(movieIdx, 1);
-
-    console.log(this._movies);
-
     this.upload();
   }
 
